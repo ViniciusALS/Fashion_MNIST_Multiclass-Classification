@@ -19,3 +19,56 @@ Data exploration and multi-class classification of the [fashion MNIST dataset](h
 ## Getting Started 
 
 Make sure you can open Jupyter Notebooks on your plataform and that you have all the dependancies cited before on your environment. If not, follow the instalation guides for each plataform.
+
+
+---------------------------------
+
+> ## The complete classification project code can be seen on the [classification](./classification.ipynb) file.
+
+------------------------------------
+
+## The Data
+
+The Dataset is divided in 60000 training example and 10000 test example. Each example consists of a 28x28 greyscale image, associated with a label from 10 classes. 
+
+Each training and test example is assigned to one of the following labels:
+
+| Label | Description |
+|-------|-------------|
+| 0     | T-shirt/top |
+| 1     | Trouser     |
+| 2     | Pullover    |
+| 3     | Dress       |
+| 4     | Coat        |
+| 5     | Sandal      |
+| 6     | Shirt       |
+| 7     | Sneaker     |
+| 8     | Bag         |
+| 9     | Ankle boot  |
+
+
+The First 9 images of the dataset look like:
+
+![](.github/images_example.png)
+
+
+## The Model
+
+The supervised neural network model consists of a flattening layer to transform the 28 by 28 image input into a one dimentional array of 784 entries. Then the model has 2 hidden layers with 10 neurons each all with a ReLU activation function. The output layer of the model has 10 neurons for each class and its values are calculated with a softmax function.
+
+The model is compiled using the Adam optimizer with a 0.001 learning rate and its loss function is calculated using cross-entropy.
+
+![](.github/model.png)
+
+
+## Training Results
+
+![](.github/loss_curve.png)
+
+
+## Test Results
+
+![](.github/confusion_matrix.png)
+
+
+As we can see on the confusion matrix, the model performs well on the test data having its worse performance on distiguishing between the ```T-shit/top``` and ```Shirt``` classes. This is understandable given the similarities between both classes, changes to the model or a better set of training data could lead to better results.
